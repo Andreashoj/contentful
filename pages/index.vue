@@ -1,7 +1,11 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
+      <!-- <ul v-if="posts">
+        <li v-for="(post, index) in posts" :key="index">
+          {{ post.fields.name }}
+        </li>
+      </ul> -->
     </div>
   </div>
 </template>
