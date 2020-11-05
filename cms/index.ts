@@ -1,21 +1,54 @@
 import client from "~/plugins/contentful";
 import { siteStore } from '~/store'
 
-const cmsClient = client
+const cms = client;
 
 export const getPosts = async () => {
     try {
-        if (!cmsClient) {
+        if (!cms) {
             return;
         } 
-        const response = await cmsClient.getEntries({
+        const response = await cms.getEntries({
             content_type: "post"
         });
-        console.log(response)
         if (response.items.length > 0) {
             siteStore.loadPosts(response.items)
         }
     } catch (err) {
         console.error(err);
+    }
+}
+
+export const getCurrentPage = async (currentPage: string) => {
+    try {
+        if(!cms) {
+            return;
+        }
+        const response = await cms.getContentType(currentPage);
+        console.log(response)
+        if(response) {
+            return response;
+        } return;
+    } catch(err) {
+        console.error(err)
+        return;
+    }
+}
+
+export const getArticles = async () => {
+    try {
+        if(!cms) {
+            return;
+        }
+        const response = await cms.getEntries({
+            content_type: "article"
+        });
+        console.log(response)
+        if(response) {
+            return response;
+        } return;
+    } catch(err) {
+        console.error(err)
+        return;
     }
 }

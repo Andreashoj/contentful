@@ -1,12 +1,11 @@
 <template>
   <div class="container">
     <div>
-      <ul>
-        <!-- <li v-for="(post, index) in posts" :key="index">
-          {{ name }}
-        </li> -->
-        <h1>Index</h1>
-      </ul>
+      <!-- <ul v-if="posts">
+        <li v-for="(post, index) in posts" :key="index">
+          {{ post.fields.name }}
+        </li>
+      </ul> -->
     </div>
   </div>
 </template>

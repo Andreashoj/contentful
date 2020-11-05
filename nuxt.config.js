@@ -35,7 +35,7 @@ export default {
 
   router: {
     extendRoutes (routes, resolve) {
-      const routesArr = [
+      routes = [
         {
           name: 'index',
           path: '/',
@@ -47,10 +47,6 @@ export default {
           component: resolve(__dirname, 'pages/about/index.vue')
         }
       ]
-
-      routesArr.forEach((element) => {
-        routes.push(element)
-      })
     }
   },
 
