@@ -8,12 +8,9 @@ import Logo from '../components/Logo';
     }
 })
 export default class Frontpage extends Vue { 
-    public page = this.$store.state.page;
-
     async asyncData() {
       return { page: await getCurrentPage("frontpage") };
     }
-    
 } 
 
 
