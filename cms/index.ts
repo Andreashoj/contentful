@@ -25,7 +25,6 @@ export const getCurrentPage = async (currentPage: string) => {
             return;
         }
         const response = await cms.getContentType(currentPage);
-        console.log(response)
         if(response) {
             return response;
         } return;
@@ -43,7 +42,6 @@ export const getArticles = async () => {
         const response = await cms.getEntries({
             content_type: "article"
         });
-        console.log(response)
         if(response) {
             return response;
         } return;
