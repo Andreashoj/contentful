@@ -1,4 +1,7 @@
 import config from './.contentful.json'
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
@@ -54,6 +57,7 @@ export default {
     fallback: true
   },
 
+
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
@@ -71,5 +75,6 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    transpile: ['vue-instantsearch', 'instantsearch.js/es'],
   }
 }
