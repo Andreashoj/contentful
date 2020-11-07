@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+}
+
+
+@mixin font-regular {
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+}
+
+@mixin font-md {
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+}
+
+@mixin font-bold {
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+}

@@ -1,6 +1,8 @@
 <template>
   <div>
+    <Header />
     <Nuxt />
+    <Footer />
   </div>
 </template>
-<script src="./index.ts"></script>
+<script src="./default.ts"></script>

@@ -16,7 +16,6 @@ export default class PageModule extends VuexModule {
 
     @Mutation 
     setPage(page: any) {
-        console.log(page)
         this.page = page;
     }
 

@@ -1,4 +1,5 @@
 import config from './.contentful.json'
+require('dotenv').config()
 
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
@@ -8,7 +9,8 @@ export default {
   env: {
     CTF_SPACE_ID: config.CTF_SPACE_ID,
     CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
-    CTF_BLOG_TYPE_ID: config.CTF_BLOG_TYPE_ID
+    ALGOLIA_APP_ID: process.env.ALGOLIA_APP_ID,
+    ALGOLIA_SEARCH_CLIENT: process.env.ALGOLIA_SEARCH_CLIENT
   },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -26,6 +28,7 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    '@/assets/site.scss'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -70,5 +73,6 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-  },
+    transpile: ['vue-instantsearch', 'instantsearch.js/es'],
+  }
 }
