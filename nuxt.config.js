@@ -1,7 +1,5 @@
 import config from './.contentful.json'
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
+require('dotenv').config()
 
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
@@ -11,7 +9,8 @@ export default {
   env: {
     CTF_SPACE_ID: config.CTF_SPACE_ID,
     CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
-    CTF_BLOG_TYPE_ID: config.CTF_BLOG_TYPE_ID
+    ALGOLIA_APP_ID: process.env.ALGOLIA_APP_ID,
+    ALGOLIA_SEARCH_CLIENT: process.env.ALGOLIA_SEARCH_CLIENT
   },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -56,7 +55,6 @@ export default {
   generate: {
     fallback: true
   },
-
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,

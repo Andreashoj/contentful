@@ -2,14 +2,10 @@ import { searchClient } from "~/utils/search-client";
 import { Vue, Component } from "nuxt-property-decorator";
 import {
     AisInstantSearch,
-    AisRefinementList,
-    AisHits,
-    AisHighlight,
-    AisSearchBox,
-    AisStats,
-    AisPagination,
     createServerRootMixin
 } from "vue-instantsearch";
+import searchfield from '~/components/searchfield/searchfield';
+
 
 @Component({
     mixins: [
@@ -31,12 +27,7 @@ import {
     },
     components: {
         AisInstantSearch,
-        AisRefinementList,
-        AisHits,
-        AisHighlight,
-        AisSearchBox,
-        AisStats,
-        AisPagination
+        searchfield
     }
 })
 export default class Header extends Vue {

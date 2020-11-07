@@ -8,17 +8,7 @@
       <input id="searchfield" type="text" placeholder="Search for post">
     </div> -->
     <ais-instant-search :search-client="searchClient" index-name="articles">
-      <ais-search-box />
-      <ais-stats />
-      <ais-refinement-list attribute="fields.author.en-US" />
-      <ais-hits>
-        <template slot="item" slot-scope="{ item }">
-          <p>
-            <ais-highlight attribute="fields.author.en-US" :hit="item" />
-          </p>
-        </template>
-      </ais-hits>
-      <ais-pagination />
+      <searchfield />
     </ais-instant-search>
   </nav>
 </template>
