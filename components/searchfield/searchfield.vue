@@ -25,11 +25,15 @@
 
         <!-- SEARCHRESULT -->
         <ais-hits>
-          <template slot="item" slot-scope="{ item }">
-            <p>
-              <ais-highlight attribute="fields.author.en-US" :hit="item" />
-            </p>
-          </template>
+          <ul slot-scope="{ items }">
+            <template v-if="items">
+              <li v-for="(item, index) in items" :key="index">
+                <nuxt-link :to="'/' + item.fields.slug['en-US'] + '/'">
+                  {{ item.fields.title['en-US'] }}
+                </nuxt-link>
+              </li>
+            </template>
+          </ul>
         </ais-hits>
       </div>
     </transition>

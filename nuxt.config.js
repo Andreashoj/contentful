@@ -1,5 +1,12 @@
 import config from './.contentful.json'
+// @ts-ignore
+const contentful = require('contentful')
 require('dotenv').config()
+
+const client = contentful.createClient({
+  space: process.env.CONTENTFUL_SPACE,
+  accessToken: process.env.CONTENTFUL_ACCESSTOKEN
+})
 
 export default {
   // Environment variables
@@ -34,19 +41,31 @@ export default {
   ],
 
   router: {
-    extendRoutes (routes, resolve) {
+    async extendRoutes (routes, resolve) {
       const routesArr = [
         {
-          name: 'index',
           path: '/',
           component: resolve(__dirname, 'pages/index.vue')
         },
         {
-          name: 'about',
           path: '/about',
           component: resolve(__dirname, 'pages/about/about.vue')
         }
       ]
+
+      // Dynamic routes
+      await Promise.all([
+        client.getEntries({
+          content_type: 'article'
+        })
+      ]).then(([articleEntries]) => {
+        return [...articleEntries.items.map((entry) => {
+          routesArr.push({
+            path: '/' + entry.fields.slug,
+            component: resolve(__dirname, 'pages/article/article.vue')
+          })
+        })]
+      })
 
       routesArr.forEach((route) => {
         routes.push(route)
