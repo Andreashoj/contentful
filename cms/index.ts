@@ -34,6 +34,25 @@ export const getCurrentPage = async (currentPage: string) => {
     }
 }
 
+
+export const getArticle = async (article: string) => {
+    try {
+        if(!cms) {
+            return;
+        }
+        const response = await cms.getEntries({
+            content_type: "article",
+            'fields.slug[in]': article
+        });
+        if(response) {
+            siteStore.loadPage(response);
+        } return;
+    } catch(err) {
+        console.error(err)
+        return;
+    }
+}
+
 export const getArticles = async () => {
     try {
         if(!cms) {
