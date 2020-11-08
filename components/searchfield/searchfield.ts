@@ -11,7 +11,4 @@ import { AisSearchBox, AisStats, AisHighlight, AisHits } from "vue-instantsearch
 })
 export default class Searchfield extends Vue {
     public searchInput: string = "";
-    mounted() {
-        console.log(process.env)
-    }
 }

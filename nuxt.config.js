@@ -2,9 +2,6 @@ import config from './.contentful.json'
 require('dotenv').config()
 
 export default {
-  // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
-  ssr: true,
-
   // Environment variables
   env: {
     CTF_SPACE_ID: config.CTF_SPACE_ID,
@@ -38,7 +35,7 @@ export default {
 
   router: {
     extendRoutes (routes, resolve) {
-      routes = [
+      const routesArr = [
         {
           name: 'index',
           path: '/',
@@ -47,9 +44,13 @@ export default {
         {
           name: 'about',
           path: '/about',
-          component: resolve(__dirname, 'pages/about/index.vue')
+          component: resolve(__dirname, 'pages/about/about.vue')
         }
       ]
+
+      routesArr.forEach((route) => {
+        routes.push(route)
+      })
     }
   },
   generate: {
@@ -73,6 +74,6 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-    transpile: ['vue-instantsearch', 'instantsearch.js/es'],
+    transpile: ['vue-instantsearch', 'instantsearch.js/es']
   }
 }
