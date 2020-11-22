@@ -1,13 +1,23 @@
 <template>
   <nav class="nav container">
-    <!-- <h2 class="nav__title">
-      Header
-    </h2>
-    <div class="nav__searchfield">
-      <label class="sr-only" for="searchfield">Searchfield</label>
-      <input id="searchfield" type="text" placeholder="Search for post">
-    </div> -->
-    <searchfield />
+    <img class="nav__logo" src="~/assets/icons/rat.svg" alt="">
+    <ul class="nav__links">
+      <li class="nav__menu-item">
+        <nuxt-link to="/" class="nav__menu-link">
+          Development
+        </nuxt-link>
+      </li>
+      <li class="nav__menu-item">
+        <nuxt-link to="/" class="nav__menu-link">
+          Design
+        </nuxt-link>
+      </li>
+      <li class="nav__menu-item">
+        <nuxt-link to="/" class="nav__menu-link">
+          Tech
+        </nuxt-link>
+      </li>
+    </ul>
   </nav>
 </template>
 <script src="./header.ts"></script>

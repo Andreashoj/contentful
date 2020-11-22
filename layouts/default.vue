@@ -1,9 +1,9 @@
 <template>
   <div>
+    <Header />
     <ais-instant-search-ssr>
-      <Header />
+      <Nuxt />
     </ais-instant-search-ssr>
-    <Nuxt />
     <Footer />
   </div>
 </template>
