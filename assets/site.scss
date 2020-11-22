@@ -3,6 +3,7 @@
 
 // Variables
 @import "styles/vars.scss";
+@import "styles/mixins.scss";
 
 // Globals
 @import "styles/global.scss";
@@ -10,8 +11,12 @@
 
 
 // Layout
-@import "styles/header.scss";
-@import "styles/footer.scss";
+@import "styles/layouts/header.scss";
+@import "styles/layouts/footer.scss";
+
+// Animation
+@import "styles/animations/animations.scss";
 
 
 // Components
+@import "styles/components/searchSection.scss";

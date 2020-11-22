@@ -1,0 +1,52 @@
+.nav {
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 6rem;
+
+    &__logo {
+        height: 64px;
+        width: 64px;
+    }
+
+    &__links {
+        display: flex;
+        margin-bottom: 0;
+        a {
+            text-decoration: none;
+        }
+    }
+    
+    &__menu-item {
+        list-style-type: none;
+        margin-left: 2rem;
+    }
+
+    &__menu-link {
+        position: relative;
+        color: $color-blue;
+        transition: $transition;
+        @include font-heavy;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        &:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0px;
+            right: 0;
+            background-color: $color-blue;
+            transition: $transition;
+        }
+        &:hover {
+            color: $color-blue-dark;
+            &:after {
+                background-color: $color-blue-dark;
+                width: 100%;
+                left: 0;
+            }
+        }
+    }
+}

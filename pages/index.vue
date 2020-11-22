@@ -1,8 +1,9 @@
 <template>
-  <div class="container">
-    <div>
-      <h1>{{ page.displayField }}</h1>
+  <main class="container">
+    <div class="search-section row">
+      <h1 class="sr-only">{{ page.displayField }}</h1>
+      <search-field />
     </div>
-  </div>
+  </main>
 </template>
 <script src="./index.ts"></script>
