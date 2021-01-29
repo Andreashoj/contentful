@@ -1,10 +1,7 @@
-import {Component, Vue} from 'nuxt-property-decorator';
-import Header from '~/components/header/header';
-import Footer from '~/components/footer/footer';
-import { AisInstantSearchSsr, createServerRootMixin } from "vue-instantsearch";
-import { searchClient } from "~/utils/search-client";
-
-
+import { searchClient } from './../utils/search-client';
+import { createServerRootMixin } from 'vue-instantsearch';
+import { Vue, Component } from "nuxt-property-decorator"
+import { VNode } from "vue";
 
 @Component({
     data() {
@@ -34,12 +31,15 @@ import { searchClient } from "~/utils/search-client";
             (window as any).__NUXT__.algoliaState;
         (this as any).instantsearch.hydrate(results);
     },
-    components: {
-        Header,
-        Footer,
-        AisInstantSearchSsr
-    }
 })
-export default class Layout extends Vue {
+export default class AisProvider extends Vue {
     public searchClient: any = searchClient;
+
+    render(): VNode[] | undefined {
+        if(this.$scopedSlots.default) {
+            return this.$scopedSlots.default!({
+                searchClient: this.searchClient
+            })
+        } return;
+    }
 }

@@ -45,11 +45,7 @@ export default {
       const routesArr = [
         {
           path: '/',
-          component: resolve(__dirname, 'pages/index.vue')
-        },
-        {
-          path: '/about',
-          component: resolve(__dirname, 'pages/about/about.vue')
+          component: resolve(__dirname, 'pages/list/index.vue')
         }
       ]
 
@@ -62,7 +58,7 @@ export default {
         return [...articleEntries.items.map((entry) => {
           routesArr.push({
             path: '/' + entry.fields.slug,
-            component: resolve(__dirname, 'pages/article/article.vue')
+            component: resolve(__dirname, 'pages/article/ViewArticle.vue')
           })
         })]
       })
@@ -77,7 +73,7 @@ export default {
   },
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: true,
+  components: false,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [

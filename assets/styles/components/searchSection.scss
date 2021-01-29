@@ -27,12 +27,12 @@
 
     &__spacing {
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
     }
 
     &__search-input {
         border: none;
-        width: 85%;
+        width: calc(100% - 30px);
     }
 
     &__dropdown {
