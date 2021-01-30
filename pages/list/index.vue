@@ -28,5 +28,4 @@ export default class Frontpage extends Vue {
     return { page: await getCurrentPage('frontpage') }
   }
 }
-
 </script>

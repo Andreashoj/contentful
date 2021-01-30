@@ -18,30 +18,18 @@
         </div>
       </ais-refinement-list>
     </ais-provider>
-
-    <ais-clear-refinements>
-      <div slot-scope="{ canRefine, refine, createURL }">
-        <a v-if="canRefine" :href="createURL()" @click.prevent="refine">
-          Reset
-        </a>
-      </div>
-    </ais-clear-refinements>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import {
-  AisRefinementList,
-  AisClearRefinements
-} from 'vue-instantsearch'
+import { AisRefinementList } from 'vue-instantsearch'
 
 import AisProvider from '@/providers/AisProvider'
 import TagBarItem from '@/components/tagbar/TagBarItem.vue'
 
 @Component({
   components: {
-    AisClearRefinements,
     AisRefinementList,
     AisProvider,
     TagBarItem

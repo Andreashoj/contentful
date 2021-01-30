@@ -1,8 +1,8 @@
 <template>
   <div v-if="page != null" class="container article">
-    <div v-if="page.fields.headerImage != null">
-      <img class="article__header-image" :src="page.fields.headerImage.fields.file.url + '?w=1000&h=400&fit=crop&r=5'" :alt="page.fields.headerImage.fields.description">
-    </div>
+    <template v-if="page.fields.headerImage != null">
+      <base-image :image="page.fields.headerImage" />
+    </template>
     <div class="article__content-container">
       <h1 v-if="page.fields.title" class="article__title">
         {{ page.fields.title }}
@@ -15,4 +15,13 @@
     </div>
   </div>
 </template>
-<script src="./ViewArticle.ts"></script>
+<script lang="ts">
+import { Vue, Component } from 'nuxt-property-decorator'
+
+@Component({
+  middleware: 'article'
+})
+export default class ViewArticle extends Vue {
+  page: Object = this.$store.state.modules.page?.items[0];
+}
+</script>
