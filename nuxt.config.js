@@ -38,6 +38,12 @@ export default {
     '@/assets/site.scss'
   ],
 
+  transition: {
+    afterLeave(el) {
+      console.log('afterLeave', el)
+    }
+  },
+
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     '@/plugins/contentful',
