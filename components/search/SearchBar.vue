@@ -3,49 +3,37 @@
     <div class="searchfield offset-lg-3 col-lg-6 col-12">
       <!-- SEARCHFIELD -->
       <ais-search-box class="searchfield__container">
-        <template slot-scope="{ isSearchStalled, refine }">
-          <search-bar-input
-            :search="refine"
-            :is-search-stalled="isSearchStalled"
-            :value="searchInput"
-            @input-event="(input) => searchInput = input"
-          />
-        </template>
+        <search-bar-input
+          slot-scope="{ isSearchStalled, refine }"
+          :is-search-stalled="isSearchStalled"
+          :search="refine"
+          :value="searchInput"
+          @input-event="(input) => (searchInput = input)"
+        />
       </ais-search-box>
 
       <!-- DROPDOWN -->
-
-      <div
-        class="searchfield__dropdown"
-        :class="{ 'is-active': searchInput.length > 0 }"
-      >
-
+      <base-dropdown :class="{ 'is-active': searchInput.length > 0 }">
+        <!-- SEARCH STATS -->
         <ais-stats class="searchfield__stats">
           <p slot-scope="{ nbHits }" class="searchfield__stats-text">
             {{ nbHits }} articles found
           </p>
         </ais-stats>
-
-
+        <!-- SEARCH RESULTS -->
         <ais-hits>
-          <ul slot-scope="{ items }" class="searchfield__list">
+          <ul slot-scope="{ items }" class="search-results">
             <template v-if="items">
-              <li
+              <search-bar-result
                 v-for="(item, index) in items"
                 :key="index"
-                class="searchfield__list-item"
-              >
-                <nuxt-link
-                  :to="'/' + item.fields.slug['en-US'] + '/'"
-                  class="searchfield__list-link"
-                >
-                  {{ item.fields.title["en-US"] }}
-                </nuxt-link>
-              </li>
+                :item="item"
+              />
             </template>
           </ul>
         </ais-hits>
-      </div>
+      </base-dropdown>
+      <!--------------------->
     </div>
   </div>
 </template>
@@ -59,6 +47,7 @@ import {
 } from 'vue-instantsearch'
 
 import SearchBarInput from '@/components/search/SearchBarInput.vue'
+import SearchBarResult from '@/components/search/SearchBarResult.vue'
 
 @Component({
   components: {
@@ -66,7 +55,8 @@ import SearchBarInput from '@/components/search/SearchBarInput.vue'
     AisStats,
     AisHighlight,
     AisHits,
-    SearchBarInput
+    SearchBarInput,
+    SearchBarResult
   }
 })
 export default class SearchBar extends Vue {

@@ -19,7 +19,8 @@
       "@nuxt/types",
       "@nuxt/vue-app",
       "@nuxtjs/axios",
-      "node"
+      "node",
+      "webpack-env"
     ],
     "experimentalDecorators": true,
     "skipLibCheck": true,

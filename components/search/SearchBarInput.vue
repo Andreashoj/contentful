@@ -4,7 +4,10 @@
       type="search"
       class="searchfield__search-input"
       placeholder="Search for article"
-      @input="typing($event.target.value)"
+      @input="(e) => {
+        search(e.target.value)
+        $emit('input-event', e.target.value)
+      }"
     >
     <span :hidden="!isSearchStalled">Loading...</span>
   </div>
@@ -31,10 +34,5 @@ import { Vue, Component } from 'nuxt-property-decorator'
 export default class SearchField extends Vue {
   searchInput: string;
   search: Function;
-
-  typing (ev: string) {
-    this.$emit('input-event', ev)
-    this.search(ev)
-  }
 }
 </script>
