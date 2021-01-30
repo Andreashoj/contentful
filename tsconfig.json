@@ -19,7 +19,8 @@
       "@nuxt/types",
       "@nuxt/vue-app",
       "@nuxtjs/axios",
-      "node"
+      "node",
+      "webpack-env"
     ],
     "experimentalDecorators": true,
     "skipLibCheck": true,
@@ -30,7 +31,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
   },
   "exclude": ["node_modules"],
 }

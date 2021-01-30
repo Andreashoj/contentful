@@ -19,11 +19,14 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
+    htmlAttrs: {
+      lang: 'en'
+    },
     title: 'contentful',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'Blog for developers' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -37,7 +40,8 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    '~/plugins/contentful'
+    '@/plugins/contentful',
+    '@/plugins/global-components'
   ],
 
   router: {
@@ -45,11 +49,7 @@ export default {
       const routesArr = [
         {
           path: '/',
-          component: resolve(__dirname, 'pages/index.vue')
-        },
-        {
-          path: '/about',
-          component: resolve(__dirname, 'pages/about/about.vue')
+          component: resolve(__dirname, 'pages/list/index.vue')
         }
       ]
 
@@ -62,7 +62,7 @@ export default {
         return [...articleEntries.items.map((entry) => {
           routesArr.push({
             path: '/' + entry.fields.slug,
-            component: resolve(__dirname, 'pages/article/article.vue')
+            component: resolve(__dirname, 'pages/article/ViewArticle.vue')
           })
         })]
       })
@@ -77,12 +77,13 @@ export default {
   },
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: true,
+  components: false,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
+    'nuxt-purgecss'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)

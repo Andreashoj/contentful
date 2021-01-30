@@ -10,65 +10,56 @@
     position: relative;
     display: flex;
     justify-content: center;
-    padding-top: 90px;
+    padding-top: 9rem;
+    font-size: $font-regular;
     &__container {
         width: 100%;
         position: relative;
-        border-bottom: 1px solid $color-light-grey;
-        padding-bottom: 5px;
+        border-bottom: .1rem solid $color-grey-light;
+        padding-bottom: .5rem;
         &:before {
             content: url('~assets/icons/search.svg');
             position: absolute;
-            height: 22px;
-            width: 22px;
+            height: 1.8rem;
+            width: 1.8rem;
             left: 0;
+            top: .3rem;
         }
     }
 
     &__spacing {
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
     }
 
     &__search-input {
         border: none;
-        width: 85%;
+        width: calc(100% - 3rem);
+        
+        &::placeholder {
+            color: $color-grey-light;
+        }
     }
-
-    &__dropdown {
-        position: absolute;
-        background-color: $color-light-grey;
-        top: calc(100% + 25px);
-        width: calc(100% - 30px);
-        transition: $transition;
-        max-height: 0;
-        overflow: hidden;
-    }
-
-    &__dropdown.is-active {
-        max-height: 300px;
-    }
-
 
     &__stats-text {
         @include font-default;
-        padding: 15px;
+        padding: 1.5rem;
         margin-bottom: 0;
     }
+}
 
-    &__list {
-        padding-left: 0;
-    }
+.search-results {
+    padding-left: 0;
 
-    &__list-item {
+    &__item {
         list-style-type: none;
-        padding: 15px;
+        padding: 1.5rem;
         a {
             text-decoration: none;
         }
     }
 
-    &__list-link {
+    &__link {
         color: $color-blue;
         transition: $transition;
         @include font-heavy;

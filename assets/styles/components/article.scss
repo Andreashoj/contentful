@@ -1,0 +1,22 @@
+.article {
+    padding-top: 90px;
+    min-height: 30rem;
+    
+    &__header-image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__content-container {
+        padding-top: 90px;
+    }
+
+    &__details {
+        display: flex;
+        p {
+            font-size: 16px;
+            @include font-heavy;
+        }
+    }
+}

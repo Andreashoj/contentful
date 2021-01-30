@@ -1,0 +1,13 @@
+.dropdown {
+    position: absolute;
+    background-color: $color-grey-light;
+    top: calc(100% + .9rem);
+    width: calc(100% - 3rem);
+    transition: $transition;
+    max-height: 0;
+    overflow: hidden;
+    z-index: 1;
+    &.is-active {
+        max-height: 30rem;
+    }
+}
