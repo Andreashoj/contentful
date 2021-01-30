@@ -19,6 +19,9 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
+    htmlAttrs: {
+      lang: 'en'
+    },
     title: 'contentful',
     meta: [
       { charset: 'utf-8' },
@@ -79,7 +82,8 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
+    'nuxt-purgecss'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)

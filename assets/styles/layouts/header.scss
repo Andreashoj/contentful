@@ -1,7 +1,7 @@
 .nav {
-    padding-left: 15px;
-    padding-right: 15px;
-    height: 6rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    min-height: 7rem;
     
     &__spacing {
         align-items: center;
@@ -10,8 +10,8 @@
     }
 
     &__logo {
-        height: 64px;
-        width: 64px;
+        height: 4.8rem;
+        width: 4.8rem;
     }
 
     &__links {
@@ -35,8 +35,8 @@
         color: $color-blue;
         transition: $transition;
         @include font-heavy;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         &:after {
             content: "";
             position: absolute;

@@ -34,11 +34,13 @@ import { VNode } from "vue";
 })
 export default class AisProvider extends Vue {
     public searchClient: any = searchClient;
+    public sortingValue: string = "fields.tags.en-US";
 
     render(): VNode[] | undefined {
         if(this.$scopedSlots.default) {
             return this.$scopedSlots.default!({
-                searchClient: this.searchClient
+                searchClient: this.searchClient,
+                sortingValue: this.sortingValue
             })
         } return;
     }

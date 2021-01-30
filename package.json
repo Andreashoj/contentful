@@ -22,6 +22,7 @@
     "lodash": "^4.17.20",
     "nuxt": "^2.14.6",
     "nuxt-property-decorator": "^2.8.8",
+    "nuxt-purgecss": "^1.0.0",
     "vue-instantsearch": "^3.4.2",
     "vuex-class-component": "^2.3.5",
     "vuex-module-decorators": "^1.0.1"

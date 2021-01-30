@@ -1,0 +1,41 @@
+/// <reference path="vars.scss" />
+/// <reference path="typography.scss" />
+/// <reference path="mixins.scss" />
+
+
+.tagbar {
+    margin-top: 1rem;
+    &__list {
+        list-style-type: none;
+        display: flex;
+    }
+
+    &__link {
+        padding: .5rem;
+        font-size: $font-small;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__item {
+        margin-right: 1rem;
+        span {
+            @include font-default;
+            font-size: $font-small;
+            color: $color-blue;
+        }
+    }
+    
+
+    .is-active {
+        background-color: $color-blue;
+        color: white;
+        border-radius: .2rem;
+        @include background-transition($transition--fast, darken($color-blue-dark, 1%));
+        span {
+            color: white;
+        }
+    }
+
+}

@@ -1,9 +1,13 @@
 <template>
   <main class="container">
     <div class="search-section row">
-      <h1 class="sr-only">
-        {{ page.displayField }}
-      </h1>
+      <ais-hits>
+        <ul slot-scope="{ items }">
+          <li v-for="item in items" :key="item.objectID">
+            {{ item.fields.title["en-US"] }}
+          </li>
+        </ul>
+      </ais-hits>
     </div>
   </main>
 </template>
@@ -12,7 +16,13 @@
 import { Vue, Component } from 'nuxt-property-decorator'
 import { getCurrentPage } from '../../cms/index'
 
-@Component
+import { AisHits } from 'vue-instantsearch'
+
+@Component({
+  components: {
+    AisHits
+  }
+})
 export default class Frontpage extends Vue {
   async asyncData () {
     return { page: await getCurrentPage('frontpage') }

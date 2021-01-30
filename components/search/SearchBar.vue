@@ -41,7 +41,6 @@
 import { Vue, Component } from 'nuxt-property-decorator'
 import {
   AisStats,
-  AisHighlight,
   AisHits,
   AisSearchBox
 } from 'vue-instantsearch'
@@ -53,7 +52,6 @@ import SearchBarResult from '@/components/search/SearchBarResult.vue'
   components: {
     AisSearchBox,
     AisStats,
-    AisHighlight,
     AisHits,
     SearchBarInput,
     SearchBarResult

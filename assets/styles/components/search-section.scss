@@ -10,18 +10,20 @@
     position: relative;
     display: flex;
     justify-content: center;
-    padding-top: 90px;
+    padding-top: 9rem;
+    font-size: $font-regular;
     &__container {
         width: 100%;
         position: relative;
-        border-bottom: 1px solid $color-light-grey;
-        padding-bottom: 5px;
+        border-bottom: .1rem solid $color-grey-light;
+        padding-bottom: .5rem;
         &:before {
             content: url('~assets/icons/search.svg');
             position: absolute;
-            height: 22px;
-            width: 22px;
+            height: 1.8rem;
+            width: 1.8rem;
             left: 0;
+            top: .3rem;
         }
     }
 
@@ -32,12 +34,16 @@
 
     &__search-input {
         border: none;
-        width: calc(100% - 30px);
+        width: calc(100% - 3rem);
+        
+        &::placeholder {
+            color: $color-grey-light;
+        }
     }
 
     &__stats-text {
         @include font-default;
-        padding: 15px;
+        padding: 1.5rem;
         margin-bottom: 0;
     }
 }
@@ -47,7 +53,7 @@
 
     &__item {
         list-style-type: none;
-        padding: 15px;
+        padding: 1.5rem;
         a {
             text-decoration: none;
         }

@@ -1,6 +1,8 @@
 <template>
   <div class="searchfield__spacing">
+    <label class="sr-only" for="searchbar-input">Searchbar</label>
     <input
+      id="searchbar-input"
       type="search"
       class="searchfield__search-input"
       placeholder="Search for article"
@@ -17,10 +19,6 @@ import { Vue, Component } from 'nuxt-property-decorator'
 
 @Component({
   props: {
-    value: {
-      required: true,
-      type: String
-    },
     isSearchStalled: {
       required: true,
       type: Boolean
@@ -31,8 +29,5 @@ import { Vue, Component } from 'nuxt-property-decorator'
     }
   }
 })
-export default class SearchField extends Vue {
-  searchInput: string;
-  search: Function;
-}
+export default class SearchField extends Vue {}
 </script>
